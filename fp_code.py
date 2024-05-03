@@ -29,22 +29,26 @@ if __name__ == "__main__":
 
 class weather():
 
-    def getweather(city, state):
+    def getweather():
         """Scrapes the web for current weather info"""
 
-        api_url = f'https://weather.com/weather/tenday/l/{city}+{state}'
+        api_url = f'https://api.openweathermap.org/data/2.5/weather?lat=38.91982068626991&lon=-77.03656476393802&appid=8c6d96932235d74117595f9e8423547b'
 
         request = requests.get(api_url)
 
-        soup = BeautifulSoup(request.text, 'html.parser')
+        json_convert = request.json()
 
-        weather = soup.find('div')
+        for x in json_convert:
+            temperature = x['temp'] 
+            fahrenheit = (temperature - 273.15) * 1.8 + 32
+            humidity = x['humidity']
+            print(f'{fahrenheit}: {humidity}')
 
-        print(weather)
-    
+
+
+        
+    # Dc Coords: 38.91982068626991, -77.03656476393802
    
-
-    
     def anaylzeweather(): 
         """Provides an analysis about the weather (DON)"""
         
