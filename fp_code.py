@@ -3,6 +3,32 @@
 from bs4 import BeautifulSoup
 import requests
 
+def main():
+    # Prompt the user to enter a state
+    state = input("Enter a state (DC, VA, or MD): ").upper()
+    
+    # Define cities for each state
+    cities = {
+        'DC': ['Washington'],
+        'VA': ['Arlington', 'Fairfax', 'Alexandria'],
+        'MD': ['Rockville', 'Bethesda', 'College Park']
+    }
+    
+    # Check if the entered state is valid
+    if state in cities:
+        # Print the cities from the selected state
+        print(f"Select a city from {state}:")
+        for city in cities[state]:
+            print(city)
+    else:
+        print("Invalid state entered. Please enter DC, VA, or MD.")
+
+if __name__ == "__main__":
+    main()
+
+
+
+
 class weather():
 
     def getweather(city, state):
