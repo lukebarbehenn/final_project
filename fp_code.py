@@ -39,15 +39,26 @@ class weather():
         json_convert = request.json()
 
         for x in json_convert:
+
             temperature = x['temp'] 
             fahrenheit = (temperature - 273.15) * 1.8 + 32
+            temp = x['main'].feelslike
             humidity = x['humidity']
-            print(f'{fahrenheit}: {humidity}')
+            pressure = x['pressure']
+            visibility = x['visibility']
+            main_weather = x['main']
 
 
+        return fahrenheit, humidity, pressure, visibility, main_weather
+            
 
-        
+   
     # Dc Coords: 38.91982068626991, -77.03656476393802
+    # Arlington Va: 38.8869342864727, -77.12104283496652
+    # Alexandria Va: 38.81738004650533, -77.10816225921265
+    # Bethesda MD: 38.9755976253306, -77.11377134028886
+    # College Park MD: 39.00539708606798, -76.92506200115137
+
    
     def anaylzeweather(): 
         """Provides an analysis about the weather (DON)"""
@@ -59,7 +70,5 @@ class weather():
         """Makes predictions about future weather events"""
         pass
     
-    def reccomend():
-        """Reccomends to the user of how they can prepare for weather events (DON)"""
-        pass
+    
     
