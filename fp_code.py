@@ -27,8 +27,6 @@ if __name__ == "__main__":
     main()
 
 
-
-
 class weather():
 
     def getweather(city, state):
