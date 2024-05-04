@@ -29,7 +29,6 @@ class weather():
     
     def anaylzeweather(): 
         """Provides an analysis about the weather (DON)"""
-        
         pass
         
     
