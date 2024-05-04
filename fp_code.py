@@ -30,7 +30,7 @@ class weather():
     def anaylzeweather(): 
         """Provides an analysis about the weather (DON)"""
         
-        cur_weather = weather.getweather("Gaithersburg", "MD")
+        pass
         
     
     def reccomend_and_predict():
