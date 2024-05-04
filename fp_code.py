@@ -1,4 +1,4 @@
-# INST326 Final Project 
+# INST326 Final Project
 
 import requests
 
@@ -50,7 +50,7 @@ class weather():
 
         return analysis
 
-    def recommend_and_predict(temp, weather):
+    def recommend(temp, weather):
         """Makes recommendations or predictions to the user based on weather """
         if "rain" or "drizzle" in weather:
             return "It's going to rain; don't forget to carry an umbrella!"
@@ -59,7 +59,7 @@ class weather():
         if temp > 90:
             return "It's very hot; stay hydrated and avoid going out during peak hours."
         else: 
-            return "Weather looks nice!"
+            return "Weather looks nice; you should be good!"
 
 def user_weather():
 
@@ -114,10 +114,9 @@ def user_analysis():
     cur_weather = input("Enter current weather: ")
 
     result = weather.analyze_weather(temp, humidity)
-    result2 = weather.recommend_and_predict(temp, cur_weather)
+    result2 = weather.recommend(temp, cur_weather)
     print(result)
     print(result2)
-
 
 if __name__ == "__main__":
     user_weather()
