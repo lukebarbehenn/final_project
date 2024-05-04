@@ -21,7 +21,7 @@ class weather():
 
         humidity = x['main']['humidity']
 
-        main_weather = x['weather'][0]['main']
+        main_weather = x['weather'][0]['description']
 
         ret_val = f'Weather: {main_weather} \nCurrent Temperature: {fahrenheit} \nFeels Like: {fahrenheit_fl} \nHumidity: {humidity}'
 
@@ -55,15 +55,14 @@ def main():
 
     cp_lat = 39.00539708606798
     cp_lon = -76.92506200115137
-
-        
+   
     user_input = input("Enter a state. DC, MD, or VA: ").upper()
 
     if user_input == "DC":
         result = weather.getweather(dc_lat, dc_lon)
         print(result)
 
-    if user_input == "VA":
+    elif user_input == "VA":
         va_state_input = input("Enter a City. Arlington or Alexandria: ").lower()
         if va_state_input == "arlington":
             result = weather.getweather(arl_lat, arl_lon)
@@ -72,7 +71,7 @@ def main():
             result = weather.getweather(alx_lat, alx_lon)
             print(result)
 
-    if user_input == "MD": 
+    elif user_input == "MD": 
         md_state_input = input("Enter a City. Bethesda or College Park: ").lower()
         if md_state_input == "bethesda":
             result = weather.getweather(bsd_lat, bsd_lon)
@@ -80,8 +79,10 @@ def main():
         if md_state_input == "college park":
             result = weather.getweather(cp_lat, cp_lon)
             print(result)
-
-         
+    else: 
+        print("Invalid State!")
+        
+    
 if __name__ == "__main__":
     main()
 
