@@ -52,18 +52,18 @@ class weather():
 
     def recommend_and_predict(temp, weather):
         """Makes recommendations or predictions to the user based on weather """
-        if "rain" in weather:
+        if "rain" or "drizzle" in weather:
             return "It's going to rain; don't forget to carry an umbrella!"
         if temp < 32:
             return "It's very cold; make sure to wear heavy winter clothes."
         if temp > 90:
             return "It's very hot; stay hydrated and avoid going out during peak hours."
+        else: 
+            return "Weather looks nice!"
 
-    
+def user_weather():
 
-def main():
-
-    """This is what the user will interact with"""
+    """User interaction with weather data """
 
     dc_lat = 38.91982068626991
     dc_lon = -77.03656476393802
@@ -105,9 +105,22 @@ def main():
             print(result)
     else: 
         print("Invalid State!")
-        
-    
+
+def user_analysis():
+    """User interaction with analysis and reccomendation system """
+
+    temp = int(input("Enter temperature: "))
+    humidity = int(input("Enter humidity: "))
+    cur_weather = input("Enter current weather: ")
+
+    result = weather.analyze_weather(temp, humidity)
+    result2 = weather.recommend_and_predict(temp, cur_weather)
+    print(result)
+    print(result2)
+
+
 if __name__ == "__main__":
-    main()
+    user_weather()
+    user_analysis()
 
     
