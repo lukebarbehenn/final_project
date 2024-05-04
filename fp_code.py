@@ -27,14 +27,38 @@ class weather():
 
         return ret_val
     
-    def anaylzeweather(): 
-        """Provides an analysis about the weather (DON)"""
-        pass
-        
-    
-    def reccomend_and_predict():
-        """Makes reccomendations or predictions to the user based on weather """
-        pass
+    def analyze_weather(temp, humidity):
+        """Provides an analysis about the weather"""
+        analysis = "Weather is "
+        if temp > 90:
+            analysis += "very hot"
+        elif temp > 70:
+            analysis += "moderately hot"
+        elif temp > 50:
+            analysis += "mild"
+        elif temp > 32:
+            analysis += "cold"
+        else:
+            analysis += "very cold"
+
+        if humidity > 80:
+            analysis += " and highly humid."
+        elif humidity > 50:
+            analysis += " and moderately humid."
+        else:
+            analysis += " and dry."
+
+        return analysis
+
+    def recommend_and_predict(temp, weather):
+        """Makes recommendations or predictions to the user based on weather """
+        if "rain" in weather:
+            return "It's going to rain; don't forget to carry an umbrella!"
+        if temp < 32:
+            return "It's very cold; make sure to wear heavy winter clothes."
+        if temp > 90:
+            return "It's very hot; stay hydrated and avoid going out during peak hours."
+
     
 
 def main():
