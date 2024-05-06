@@ -52,7 +52,7 @@ class weather():
 
     def recommend(temp, weather):
         """Makes recommendations or predictions to the user based on weather """
-        if "rain" or "drizzle" in weather:
+        if "rain" in weather or "drizzle" in weather or "mist" in weather:
             return "It's going to rain; don't forget to carry an umbrella!"
         if temp < 32:
             return "It's very cold; make sure to wear heavy winter clothes."
@@ -91,25 +91,32 @@ def user_weather():
         if va_state_input == "arlington":
             result = weather.getweather(arl_lat, arl_lon)
             print(result)
-        if va_state_input == "alexandria":
+        elif va_state_input == "alexandria":
             result = weather.getweather(alx_lat, alx_lon)
             print(result)
+        else:
+            print("Invalid City!")
+            exit()
 
     elif user_input == "MD": 
         md_state_input = input("Enter a City. Bethesda or College Park: ").lower()
         if md_state_input == "bethesda":
             result = weather.getweather(bsd_lat, bsd_lon)
             print(result)
-        if md_state_input == "college park":
+        elif md_state_input == "college park":
             result = weather.getweather(cp_lat, cp_lon)
             print(result)
+        else:
+            print("Invalid City!")
+            exit()
     else: 
         print("Invalid State!")
+        exit()
 
 def user_analysis():
     """User interaction with analysis and reccomendation system """
 
-    temp = int(input("Enter temperature: "))
+    temp = float(input("Enter temperature: "))
     humidity = int(input("Enter humidity: "))
     cur_weather = input("Enter current weather: ")
 
