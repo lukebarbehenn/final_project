@@ -3,11 +3,12 @@
 
 import requests
 
-class weather():
+class Weather():
 
-    def getweather(lat, lon):
+    def get_weather(lat, lon):
         """Scrapes the web for current weather info"""
 
+        # API call from OpenWeather API 
         api_url = f'https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid=8c6d96932235d74117595f9e8423547b'
 
         request = requests.get(api_url)
@@ -84,16 +85,16 @@ def user_weather():
     user_input = input("Enter a state. DC, MD, or VA: ").upper()
 
     if user_input == "DC":
-        result = weather.getweather(dc_lat, dc_lon)
+        result = Weather.get_weather(dc_lat, dc_lon)
         print(result)
 
     elif user_input == "VA":
         va_state_input = input("Enter a City. Arlington or Alexandria: ").lower()
         if va_state_input == "arlington":
-            result = weather.getweather(arl_lat, arl_lon)
+            result = Weather.get_weather(arl_lat, arl_lon)
             print(result)
         elif va_state_input == "alexandria":
-            result = weather.getweather(alx_lat, alx_lon)
+            result = Weather.get_weather(alx_lat, alx_lon)
             print(result)
         else:
             print("Invalid City!")
@@ -102,10 +103,10 @@ def user_weather():
     elif user_input == "MD": 
         md_state_input = input("Enter a City. Bethesda or College Park: ").lower()
         if md_state_input == "bethesda":
-            result = weather.getweather(bsd_lat, bsd_lon)
+            result = Weather.get_weather(bsd_lat, bsd_lon)
             print(result)
         elif md_state_input == "college park":
-            result = weather.getweather(cp_lat, cp_lon)
+            result = Weather.get_weather(cp_lat, cp_lon)
             print(result)
         else:
             print("Invalid City!")
@@ -122,8 +123,8 @@ def user_analysis():
     humidity = int(input("Enter humidity: "))
     cur_weather = input("Enter current weather: ")
 
-    result = weather.analyze_weather(temp, humidity)
-    result2 = weather.recommend(temp, cur_weather)
+    result = Weather.analyze_weather(temp, humidity)
+    result2 = Weather.recommend(temp, cur_weather)
     print(result)
     print(result2)
 
