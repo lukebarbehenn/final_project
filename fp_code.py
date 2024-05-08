@@ -1,4 +1,5 @@
 # INST326 0204 Group 8 Final Project - Weather Analysis 
+# Luke Barbehenn and Don Nguyen 
 
 import requests
 
