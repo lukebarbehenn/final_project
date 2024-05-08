@@ -149,10 +149,3 @@ def user_analysis():
 if __name__ == "__main__":
     user_weather()
     user_analysis()
-
-
-if __name__ == "__main__":
-    user_weather()
-    user_analysis()
-
-    
