@@ -109,6 +109,7 @@ def user_weather():
         else:
             print("Invalid City!")
             exit()
+            
     else: 
         print("Invalid State!")
         exit()
