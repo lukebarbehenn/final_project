@@ -20,6 +20,7 @@ class Weather:
                  'feels like' temperature, and humidity.
         """
         api_url = f'https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid=8c6d96932235d74117595f9e8423547b'
+
         request = requests.get(api_url)
         x = request.json()
 
@@ -143,8 +144,8 @@ def user_analysis():
 
     result = Weather.analyze_weather(temp, humidity)
     result2 = Weather.recommend(temp, cur_weather)
-    print(result)
-    print(result2)
+    print("Analysis: " + result)
+    print("Recomendation: " + result2)
 
 if __name__ == "__main__":
     user_weather()
